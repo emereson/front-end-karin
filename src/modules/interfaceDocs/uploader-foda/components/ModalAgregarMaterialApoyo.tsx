@@ -1,0 +1,148 @@
+import {
+  Button,
+  Input,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalHeader,
+} from "@heroui/react";
+import { useForm } from "react-hook-form";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
+
+import {
+  getMaterialApoyo,
+  postMaterialApoyo,
+} from "../services/archivo.service";
+import type { FormArchivo } from "../../../../type/archivo.type";
+import { handleAxiosError } from "../../../../utils/errorHandler";
+import { Link } from "react-router-dom";
+import Loading from "../../../../hooks/Loading";
+
+interface Props {
+  isOpen: boolean;
+  onOpenChange: (open: boolean) => void;
+  id: number;
+}
+
+export default function ModalAgregarMaterialApoyo({
+  isOpen,
+  onOpenChange,
+  id,
+}: Props) {
+  const { register, handleSubmit, reset } = useForm<FormArchivo>();
+
+  const [loading, setLoading] = useState(false);
+  const [materialApoyoFile, setMaterialApoyoFile] = useState<string>("");
+
+  useEffect(() => {
+    if (!isOpen) reset();
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (isOpen) {
+      fetchArchivos();
+    }
+  }, [isOpen]);
+
+  const fetchArchivos = async () => {
+    try {
+      const res = await getMaterialApoyo(id);
+      setMaterialApoyoFile(res.materialApoyo?.material_apoyo || "");
+    } catch (error) {
+      console.error("Error al obtener archivos:", error);
+    }
+  };
+
+  const submit = async (data: FormArchivo) => {
+    if (!data.material_apoyo?.[0]) {
+      toast.error("Debes seleccionar un archivo.");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("material_apoyo", data.material_apoyo[0]);
+
+    setLoading(true);
+
+    try {
+      await postMaterialApoyo(formData, id);
+      toast.success("El archivo se agregó correctamente");
+      fetchArchivos();
+      onOpenChange(false);
+    } catch (error) {
+      handleAxiosError(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <Modal
+      isOpen={isOpen}
+      onOpenChange={onOpenChange}
+      backdrop="blur"
+      size="md"
+    >
+      <ModalContent>
+        <ModalHeader className="flex flex-col gap-1 text-base text-blue-600">
+          Agregar material de apoyo
+        </ModalHeader>
+        <ModalBody>
+          {loading && <Loading />}
+          <form className="flex flex-col gap-4" onSubmit={handleSubmit(submit)}>
+            <div className="flex flex-col gap-2">
+              <Input
+                type="file"
+                label="Selecciona su documento"
+                labelPlacement="outside"
+                radius="sm"
+                size="sm"
+                {...register("material_apoyo")}
+                errorMessage="El documento es obligatorio."
+              />
+              {materialApoyoFile && (
+                <span className="text-xs text-red-500 font-semibold">
+                  Ya existe un documento cargado dale click a descargar
+                </span>
+              )}
+            </div>
+
+            <div className="flex justify-between items-center px-2 gap-3">
+              {materialApoyoFile && (
+                <Link
+                  to={`${import.meta.env.VITE_URL_IMAGE}/${materialApoyoFile}`}
+                  target="_blank"
+                >
+                  <Button type="button" size="sm" color="primary">
+                    Descargar
+                  </Button>
+                </Link>
+              )}
+
+              <div className="ml-auto flex gap-3">
+                <Button
+                  color="danger"
+                  type="button"
+                  size="sm"
+                  onPress={() => onOpenChange(false)}
+                  disabled={loading}
+                >
+                  Cancelar
+                </Button>
+                <Button
+                  color="primary"
+                  type="submit"
+                  size="sm"
+                  isLoading={loading}
+                >
+                  Guardar
+                </Button>
+              </div>
+            </div>
+          </form>
+        </ModalBody>
+      </ModalContent>
+    </Modal>
+  );
+}
