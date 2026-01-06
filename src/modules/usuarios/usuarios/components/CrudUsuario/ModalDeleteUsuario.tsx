@@ -55,7 +55,7 @@ const ModalDeleteUsuario = ({
         {() => (
           <>
             <ModalHeader className="flex flex-col gap-1 text-md">
-              Eliminar al usuario {usuario.nombre} {usuario.apellido}
+              Eliminar al usuario {usuario.nombre}
             </ModalHeader>
             <ModalBody>
               <div className="w-full flex items-center justify-end gap-3 p-4">
