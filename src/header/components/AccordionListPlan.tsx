@@ -483,7 +483,7 @@ function AccordionItem({ item, level }: { item: ListItem; level: number }) {
             className={`${
               item.title_principal
                 ? "text-xs font-extrabold"
-                : "text-[11px] font-semibold"
+                : "text-[10px] font-semibold"
             } `}
           >
             {item.id && `${item.id}.`} {item.title}
