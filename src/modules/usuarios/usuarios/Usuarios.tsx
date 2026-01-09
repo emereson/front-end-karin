@@ -43,7 +43,7 @@ const Usuarios = () => {
 
   return (
     <main className="w-full h-screen p-3 overflow-hidden">
-      <section className="w-full h-full p-4 pb-0 bg-white border-y-8 border-blue-700 flex flex-col gap-4 rounded-xl shadow-[0px_0_10px_rgba(255,255,255)]">
+      <section className="w-full h-full p-4 pb-0 bg-white border-y-4 border-blue-700 flex flex-col gap-4 rounded-xl shadow-[0px_0_10px_rgba(255,255,255)]">
         <div className="flex items-end gap-2 font-semibold text-lg text-neutral-700">
           <FaUser className="text-xl text-orange-500" />
           <h1 className="leading-4">Usuarios</h1>

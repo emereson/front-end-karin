@@ -8,7 +8,7 @@ const DashBoard = () => {
   const [selectPlan, setSelectPlan] = useState<string | null>(null);
 
   return (
-    <main className="w-full h-screen overflow-hidden overflow-y-auto p-10 bg-white   border-y-8 border-blue-700 flex flex-col justify-around items-end gap-4">
+    <main className="w-full h-screen overflow-hidden overflow-y-auto p-10 bg-white   border-y-4 border-blue-700 flex flex-col justify-around items-end gap-4">
       {selectPlan && (
         <Button
           className="min-h-10  bg-blue-700"
