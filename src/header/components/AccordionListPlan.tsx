@@ -481,8 +481,10 @@ function AccordionItem({ item, level }: { item: ListItem; level: number }) {
           )}
           <span
             className={`${
-              item.title_principal ? "text-xs" : "text-[10px]"
-            } font-extrabold`}
+              item.title_principal
+                ? "text-xs font-extrabold"
+                : "text-[10px] font-semibold"
+            } `}
           >
             {item.id && `${item.id}.`} {item.title}
           </span>
