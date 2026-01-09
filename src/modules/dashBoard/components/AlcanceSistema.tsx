@@ -20,7 +20,7 @@ interface CycleElementProps {
 
 const InfoBox: React.FC<InfoBoxProps> = ({ title, code, color }) => (
   <div
-    className={`${color} border-2 border-black p-4 rounded-lg w-full text-center cursor-pointer shadow-md shadow-neutral-500`}
+    className={`${color} border-2 border-blue-700 p-4 rounded-lg w-full text-center cursor-pointer shadow-md shadow-neutral-500`}
   >
     <p className="font-bold text-sm ">{title}</p>
     <p className="font-bold text-sm ">{code}</p>
@@ -35,7 +35,7 @@ const CycleElement: React.FC<CycleElementProps> = ({
   color,
 }) => (
   <div
-    className={`${color} w-36 h-36 rounded-full flex flex-col justify-center items-center text-center p-2 shadow-lg border-4 border-black
+    className={`${color} w-36 h-36 rounded-full flex flex-col justify-center items-center text-center p-2 shadow-lg border-4 border-blue-700
       cursor-pointer 
       `}
   >
@@ -66,8 +66,8 @@ export default function AlcanceSistema({ selectPlan }: Props) {
             code="(4)"
             color={`${
               selectPlan === "planificar"
-                ? "bg-cyan-500"
-                : " cursor-no-drop bg-neutral-500"
+                ? "bg-cyan-500 text-blue-700"
+                : " cursor-no-drop bg-neutral-500 text-white"
             }`}
           />
         </article>
@@ -77,8 +77,8 @@ export default function AlcanceSistema({ selectPlan }: Props) {
             code="(4.1)"
             color={`${
               selectPlan === "planificar"
-                ? "bg-cyan-500"
-                : " cursor-no-drop bg-neutral-500"
+                ? "bg-cyan-500 text-blue-700"
+                : " cursor-no-drop bg-neutral-500 text-white"
             }`}
           />
         </article>
@@ -88,19 +88,19 @@ export default function AlcanceSistema({ selectPlan }: Props) {
             code="(4.2)"
             color={`${
               selectPlan === "planificar"
-                ? "bg-cyan-500"
-                : " cursor-no-drop bg-neutral-500"
+                ? "bg-cyan-500 text-blue-700"
+                : " cursor-no-drop bg-neutral-500 text-white"
             }`}
           />
         </article>
       </div>
 
       <section
-        className={`w-full h-full    p-4 rounded-2xl border-2 border-black flex flex-col items-center gap-4  shadow-md shadow-neutral-500
+        className={`w-full h-full    p-4 rounded-2xl border-2 border-blue-700 flex flex-col items-center gap-4  shadow-md shadow-neutral-500
             ${
               selectPlan === "planificar"
-                ? "bg-cyan-500"
-                : " cursor-no-drop bg-neutral-500"
+                ? "bg-cyan-500 text-blue-700"
+                : " cursor-no-drop bg-neutral-500  text-white"
             }`}
       >
         <h2 className="text-center text-sm  font-bold">
@@ -109,13 +109,13 @@ export default function AlcanceSistema({ selectPlan }: Props) {
 
         <div className="relative flex items-center justify-center">
           <div
-            className={`cursor-pointer  w-36 h-36 rounded-full overflow-hidden flex flex-col justify-center items-center text-center  shadow-lg border-4 border-black`}
+            className={`cursor-pointer  w-36 h-36 rounded-full overflow-hidden flex flex-col justify-center items-center text-center  shadow-lg border-4 border-blue-700`}
           >
             <div
               className={`w-full h-full pt-3 bg-cyan-500 ${
                 selectPlan === "planificar"
-                  ? "bg-cyan-500"
-                  : " cursor-no-drop bg-neutral-500"
+                  ? "bg-cyan-500 text-blue-700"
+                  : " cursor-no-drop bg-neutral-500 text-white"
               }`}
             >
               <p className="font-extrabold text-xs ">(7)</p>
@@ -125,10 +125,10 @@ export default function AlcanceSistema({ selectPlan }: Props) {
             </div>
 
             <div
-              className={`w-full h-full border-t-2 border-black pt-2 ${
+              className={`w-full h-full border-t-2 border-blue-700 pt-2 ${
                 selectPlan === "hacer"
-                  ? "bg-green-500"
-                  : " cursor-no-drop bg-neutral-500"
+                  ? "bg-green-500 text-blue-700 "
+                  : " cursor-no-drop bg-neutral-500 text-white"
               } `}
             >
               <p className="font-extrabold text-xs ">(8)</p>
@@ -147,8 +147,8 @@ export default function AlcanceSistema({ selectPlan }: Props) {
               code="(6)"
               color={`${
                 selectPlan === "planificar"
-                  ? "bg-cyan-500"
-                  : " cursor-no-drop bg-neutral-500"
+                  ? "bg-cyan-500 text-blue-700"
+                  : " cursor-no-drop bg-neutral-500 text-white"
               }`}
             />
             <BsArrow90DegRight className="absolute top-[-100px] right-[-20px] text-[100px] text-[#161c96] " />
@@ -158,8 +158,8 @@ export default function AlcanceSistema({ selectPlan }: Props) {
             code="(5)"
             color={`${
               selectPlan === "planificar"
-                ? "bg-cyan-500"
-                : " cursor-no-drop bg-neutral-500"
+                ? "bg-cyan-500 text-blue-700"
+                : " cursor-no-drop bg-neutral-500 text-white"
             }`}
           />
 
@@ -169,8 +169,8 @@ export default function AlcanceSistema({ selectPlan }: Props) {
               code="(9)"
               color={`${
                 selectPlan === "actuar"
-                  ? "bg-orange-500"
-                  : " cursor-no-drop bg-neutral-500 "
+                  ? "bg-orange-500 text-blue-700"
+                  : " cursor-no-drop bg-neutral-500 text-white"
               }`}
             />
             <BsArrow90DegRight className="absolute bottom-[-100px] left-[-20px] text-[100px] text-[#161c96]  rotate-[-180deg]" />
@@ -182,8 +182,8 @@ export default function AlcanceSistema({ selectPlan }: Props) {
             code="(10)"
             color={`${
               selectPlan === "verificar"
-                ? "bg-red-500"
-                : " cursor-no-drop bg-neutral-500"
+                ? "bg-red-500 text-blue-700"
+                : " cursor-no-drop bg-neutral-500 text-white"
             }`}
           />
           <BsArrow90DegRight className="absolute top-[-20px] left-[-100px] text-[100px] text-[#161c96]  rotate-[-90deg]" />

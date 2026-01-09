@@ -11,7 +11,7 @@ const DashBoard = () => {
     <main className="w-full h-screen overflow-hidden overflow-y-auto p-10 bg-white  flex flex-col justify-around items-end gap-4">
       {selectPlan && (
         <Button
-          className="min-h-10 "
+          className="min-h-10  bg-blue-700"
           color="primary"
           startContent={<FaArrowLeftLong className="text-xl" />}
           onPress={() => setSelectPlan(null)}
