@@ -16,7 +16,7 @@ const Header = ({ rol }: HeaderProps) => {
 
   return (
     <header
-      className="min-w-[330px] max-w-[330px] h-[100vh] pb-6 bg-white flex flex-col z-30 
+      className="min-w-[330px] max-w-[330px] h-[100vh] pb-6 bg-white flex flex-col z-30  border-y-8 border-blue-700
              overflow-hidden 
              shadow-[3px_0_4px_rgba(7,21,170)]"
     >

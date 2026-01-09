@@ -26,7 +26,7 @@ const InterfaceDoc = () => {
   }, [id]);
 
   return (
-    <main className="w-full h-screen p-2 overflow-y-auto bg-gray-50">
+    <main className="w-full h-screen p-2 overflow-y-auto bg-gray-50 border-y-8 border-blue-700">
       {id && interfaceDoc && (
         <FileUploaderFODA id={Number(id)} interfaceDoc={interfaceDoc} />
       )}
