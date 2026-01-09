@@ -21,6 +21,8 @@ interface Props {
   onOpenChange: (open: boolean) => void;
   foda: Foda;
   fetchFodas: () => void;
+  fetchFodasAll: () => void;
+  setSelectFoda: (foda: Foda | null) => void;
 }
 
 export default function ModalAgregarDocumentoFoda({
@@ -28,6 +30,8 @@ export default function ModalAgregarDocumentoFoda({
   onOpenChange,
   foda,
   fetchFodas,
+  fetchFodasAll,
+  setSelectFoda,
 }: Props) {
   const { register, handleSubmit, reset } = useForm<FormArchivo>();
 
@@ -53,6 +57,8 @@ export default function ModalAgregarDocumentoFoda({
       await cargarDocumentoFoda(formData, foda.id);
       toast.success("El documento se agregó correctamente");
       fetchFodas();
+      fetchFodasAll();
+      setSelectFoda(null);
       onOpenChange(false);
     } catch (error) {
       handleAxiosError(error);

@@ -18,9 +18,15 @@ interface Props {
   selectFoda: Foda;
   fetchFodasAll: () => void;
   id: number;
+  setSelectFoda: (foda: Foda | null) => void;
 }
 
-export function DataFoda({ selectFoda, fetchFodasAll, id }: Props) {
+export function DataFoda({
+  selectFoda,
+  fetchFodasAll,
+  id,
+  setSelectFoda,
+}: Props) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [foda, setFoda] = useState<Foda | null>(null);
   const [selectModal, setSelectModal] = useState("");
@@ -222,6 +228,8 @@ export function DataFoda({ selectFoda, fetchFodasAll, id }: Props) {
           onOpenChange={onOpenChange}
           foda={foda}
           fetchFodas={fetchFodas}
+          fetchFodasAll={fetchFodasAll}
+          setSelectFoda={setSelectFoda}
         />
       )}
       {selectModal === "validar" && foda && (

@@ -118,7 +118,12 @@ export default function FileUploaderFODA({ id, interfaceDoc }: Props) {
       />
 
       {selectFoda && (
-        <DataFoda selectFoda={selectFoda} fetchFodasAll={fetchFodas} id={id} />
+        <DataFoda
+          selectFoda={selectFoda}
+          setSelectFoda={setSelectFoda}
+          fetchFodasAll={fetchFodas}
+          id={id}
+        />
       )}
 
       {selectModal === "material_apoyo" && (
