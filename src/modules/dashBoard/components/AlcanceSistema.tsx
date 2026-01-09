@@ -58,7 +58,7 @@ interface Props {
 // Componente principal de la página
 export default function AlcanceSistema({ selectPlan }: Props) {
   return (
-    <div className="w-full h-[560px] m-auto  flex items-center justify-center gap-4  ">
+    <div className="w-full h-[560px]   flex items-center justify-center gap-4  ">
       <div className=" min-w-[300px]  h-full  flex flex-col justify-between gap-4">
         <article>
           <InfoBox
