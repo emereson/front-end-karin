@@ -43,7 +43,6 @@ body {
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #f5841a;
+  background-color: #1c2437;
   border-radius: 5px;
-  color: rgb(57, 57, 57);
 }
