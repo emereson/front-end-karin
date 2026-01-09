@@ -151,6 +151,7 @@ export default function ModalAgregarFoda({
               />
             </div>
             <Select
+              isRequired
               className=""
               classNames={selectClassNames}
               labelPlacement="outside"
