@@ -155,7 +155,7 @@ export default function ModalAgregarFoda({
               classNames={selectClassNames}
               labelPlacement="outside"
               variant="bordered"
-              label="Roles"
+              label="Tipo de Documento"
               {...register("tipo_documento")}
               placeholder="Seleccionar..."
               radius="sm"

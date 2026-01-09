@@ -29,6 +29,7 @@ export default function TablaFoda({
   const columns = [
     { key: "estado", label: "Estado" },
     { key: "empresa", label: "E. Colaboradora" },
+    { key: "tipo_documento", label: "Tipo Documento" },
     { key: "documento", label: "Documento" },
     { key: "nivel", label: "Nivel" },
     { key: "detalle", label: "Detalle" },
@@ -100,6 +101,9 @@ export default function TablaFoda({
               )}
             </TableCell>
             <TableCell className="text-xs">{item.colaboradora}</TableCell>
+            <TableCell className="text-xs">
+              {item.tipo_documento || ""}
+            </TableCell>
             <TableCell className="text-xs">{item.documento}</TableCell>
             <TableCell className="text-xs">{item.nivel}</TableCell>
             <TableCell className="text-xs">{item.detalle}</TableCell>
