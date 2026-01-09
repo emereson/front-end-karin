@@ -16,9 +16,9 @@ const Header = ({ rol }: HeaderProps) => {
 
   return (
     <header
-      className="min-w-[290px] max-w-[290px] h-[100vh] pb-6 bg-slate-800 flex flex-col z-30 
+      className="min-w-[350px] max-w-[350px] h-[100vh] pb-6 bg-white flex flex-col z-30 
              overflow-hidden 
-             shadow-[2px_0_6px_rgba(19,20,21)]"
+             shadow-[3px_0_4px_rgba(7,21,170)]"
     >
       <Link className="p-4" to="/">
         <img
@@ -34,7 +34,7 @@ const Header = ({ rol }: HeaderProps) => {
           {rol === "ADMIN" && (
             <Link className="px-1 py-1" to="/usuarios">
               <Button
-                className="w-full rounded-sm flex justify-start px-3 py-5.5 text-xs bg-sky-400"
+                className="w-full rounded-sm flex justify-start px-3 py-5.5 text-xs bg-blue-700 text-white"
                 radius="none"
               >
                 <FaUser className="text-lg" />

@@ -56,7 +56,7 @@ const listData: ListItem[] = [
           },
           {
             id: "T.3",
-            title: "DETERMINACIÓN DEL ALCANCE DEL SGSST",
+            title: "DELIMITACIÓN DEL ALCANCE DEL SGSST",
             icono: Network,
             link: `/interface-doc/4`,
           },
@@ -482,7 +482,7 @@ function AccordionItem({ item, level }: { item: ListItem; level: number }) {
           <span
             className={`${
               item.title_principal ? "text-xs" : "text-[10px]"
-            } font-semibold`}
+            } font-extrabold`}
           >
             {item.id && `${item.id}.`} {item.title}
           </span>

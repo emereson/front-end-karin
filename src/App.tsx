@@ -16,12 +16,11 @@ const useUserData = () => {
 
 function App() {
   const userData = useUserData();
-  console.log(userData);
 
   return (
     <BrowserRouter>
       <Toaster position="bottom-right" richColors />
-      <div className=" w-screen flex bg-white overflow-hidden">
+      <div className=" w-screen flex  bg-white  overflow-hidden">
         {userData && <Header rol={userData.role} />}
         <Routes>
           <Route path="/log-in" element={<Login />} />

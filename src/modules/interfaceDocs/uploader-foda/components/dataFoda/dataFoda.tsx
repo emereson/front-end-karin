@@ -17,11 +17,12 @@ import { Link } from "react-router-dom";
 interface Props {
   selectFoda: Foda;
   fetchFodasAll: () => void;
+  id: number;
 }
 
-export function DataFoda({ selectFoda, fetchFodasAll }: Props) {
+export function DataFoda({ selectFoda, fetchFodasAll, id }: Props) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const [foda, setFoda] = useState<Foda>();
+  const [foda, setFoda] = useState<Foda | null>(null);
   const [selectModal, setSelectModal] = useState("");
 
   const [selectNav, setSelectNav] = useState<"documento" | "cambios" | "notas">(
@@ -41,6 +42,13 @@ export function DataFoda({ selectFoda, fetchFodasAll }: Props) {
   const isImage = /\.(jpg|jpeg|png|gif|webp)$/i.test(
     selectFoda.documento || ""
   );
+
+  useEffect(() => {
+    setFoda(null);
+    setSelectModal("");
+    setSelectNav("documento");
+    setPreviewUrl(null);
+  }, [id]);
 
   // 👉 Previsualizar localmente para evitar errores CSP
   useEffect(() => {

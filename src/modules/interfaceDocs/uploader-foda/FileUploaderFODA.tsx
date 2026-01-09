@@ -55,7 +55,7 @@ export default function FileUploaderFODA({ id, interfaceDoc }: Props) {
   }, [id]);
 
   return (
-    <div className="w-full min-h-screen bg-gray-50 p-4  font-sans flex flex-col   h-auto overflow-y-auto">
+    <div className="w-full min-h-screen bg-neutral-50 p-4  font-sans flex flex-col   h-auto overflow-y-auto">
       {/* Encabezado */}
       <div className="flex flex-col gap-2 mb-4">
         <h1 className="text-lg font-bold text-gray-800">
@@ -63,8 +63,8 @@ export default function FileUploaderFODA({ id, interfaceDoc }: Props) {
         </h1>
         <p className="text-xs">
           TIPO DE DOCUMENTOS (
-          {interfaceDoc.tipos_documento.map((i) => (
-            <span>{i}, </span>
+          {interfaceDoc.tipos_documento.map((i, index) => (
+            <span key={index}>{i}, </span>
           ))}
           )
         </p>
@@ -118,7 +118,7 @@ export default function FileUploaderFODA({ id, interfaceDoc }: Props) {
       />
 
       {selectFoda && (
-        <DataFoda selectFoda={selectFoda} fetchFodasAll={fetchFodas} />
+        <DataFoda selectFoda={selectFoda} fetchFodasAll={fetchFodas} id={id} />
       )}
 
       {selectModal === "material_apoyo" && (
